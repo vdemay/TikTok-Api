@@ -46,6 +46,11 @@ class TikTokApi:
         # Get Browser Params
         b = browser("newParam", newParams=True, **kwargs)
 
+        if kwargs.get("use_test_endpoints", False):
+            global BASE_URL
+            BASE_URL = "https://t.tiktok.com/"
+
+
         try:
             self.timezone_name = self.__format_new_params__(b.timezone_name)
             self.browser_language = self.__format_new_params__(b.browser_language)
